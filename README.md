@@ -33,7 +33,7 @@ yarn start     # bacend-frontend, web start
       <a href="https://github.com/InSeong-So">InSeong-So</a>
     </td>
     <td align="center">
-      <a href="https://github.com/areumsheep"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/66028045?v=4"/></a>
+      <a href="https://github.com/areumsheep"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/48716298?v=4"/></a>
       <br />
       <a href="https://github.com/areumsheep">Areum Yang</a>
     </td>
