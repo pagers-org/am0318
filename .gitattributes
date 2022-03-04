@@ -1,0 +1,4 @@
+*.js linguist-generated=true
+*.css linguist-generated=true
+*.scss linguist-generated=true
+*.html linguist-generated=true

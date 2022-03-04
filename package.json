@@ -1,0 +1,20 @@
+{
+  "name": "@project/workspace",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "7.17.0",
+    "@babel/preset-env": "7.16.11",
+    "@babel/preset-react": "7.16.7",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "kill-port": "1.6.1",
+    "lerna": "^4.0.0",
+    "prettier": "^2.5.1",
+    "prettier-eslint": "^13.0.0"
+  }
+}
