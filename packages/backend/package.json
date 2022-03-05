@@ -1,23 +1,20 @@
 {
   "name": "@project/backend",
-  "version": "1.0.0",
-  "description": "> TODO: description",
-  "author": "InSeongSo <goflvhxj2547@gmail.com>",
-  "homepage": "https://github.com/FECrash/am0318#readme",
-  "license": "MIT",
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FECrash/am0318.git"
-  },
+  "version": "0.0.0",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon app.js"
-  },
-  "bugs": {
-    "url": "https://github.com/FECrash/am0318/issues"
+    "dev": "nodemon src/index.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "esm": "^3.2.25",
     "express": "^4.17.3",
+    "firebase": "^9.6.8",
+    "nanoid": "^3.3.1"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.15"
   }
 }
