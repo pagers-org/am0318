@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import numberBox from '../assets/images/numberBox.svg';
 import Layout from '../components/Layout';
 import Button from '@project/stories/src/components/atom/Button';
-
+import '../assets/css/font.css';
 const Frame = styled.div`
   margin: 0 auto;
   width: 318px;
@@ -25,6 +25,7 @@ const BoxWrapper = styled.div`
   align-items: center;
   margin-top: 24px;
   margin-bottom: 50px;
+  
 `;
 
 const BoxFrame = styled.div`
@@ -49,7 +50,7 @@ const Box = styled.button`
   cursor: pointer;
   color: #fff;
   font-size: 24px;
-  font: 
+  font-family:'UhBeeSe_hyun';
 `;
 
 const colors = ['#FF5F0F', '#FFF27B', '#82E8CF', '#79BBE5'];
