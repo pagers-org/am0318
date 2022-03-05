@@ -15,12 +15,11 @@ const Image = styled.img`
   width: 318px;
   display: block;
   margin-left: auto;
-  margin-right : auto;
+  margin-right: auto;
 `;
 
 const Button = styled.div`
   text-align: center;
-  
 `;
 
 // 추후 wrapper, title, button 추후 공통 컴포넌트로 변경
