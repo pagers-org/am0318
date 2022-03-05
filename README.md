@@ -52,6 +52,11 @@ yarn start     # bacend-frontend, web start
       <br />
       <a href="https://github.com/yechukim">Yeeun Kim</a>
     </td>
+    <td align="center">
+      <a href="https://github.com/sunhwa508"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/61695175?v=4"/></a>
+      <br />
+      <a href="https://github.com/sunhwa508">sunhwalee</a>
+    </td>
   </tr>
 </table>
 
