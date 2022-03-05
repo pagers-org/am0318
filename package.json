@@ -5,12 +5,15 @@
   ],
   "private": true,
   "scripts": {
-    "taskkill": "cross-env NODE_ENV=production kill-port --port 3000,4000,9011",
-    "build": "cross-env NODE_ENV=production lerna run --parallel build",
-    "bootstrap": "cross-env NODE_ENV=production lerna bootstrap --use-workspaces",
-    "dev:back": "yarn run taskkill && lerna run --scope @project/backend dev --parallel",
-    "dev:front": "yarn run taskkill && lerna run --scope @project/frontend dev --parallel",
-    "dev:stories": "yarn run taskkill && lerna run --scope @project/stories start --parallel"
+    "dev:taskkill": "cross-env NODE_ENV=production kill-port --port 3000,4001,9011",
+    "dev:build": "cross-env NODE_ENV=production lerna run --parallel build",
+    "dev:bootstrap": "cross-env NODE_ENV=production lerna bootstrap --use-workspaces",
+    "dev:back": "yarn run dev:taskkill && lerna run --scope @project/backend dev --parallel",
+    "dev:front": "yarn run dev:taskkill && lerna run --scope @project/frontend dev --parallel",
+    "dev:stories": "yarn run dev:taskkill && lerna run --scope @project/stories start --parallel",
+    "build": "lerna run --parallel build",
+    "taskkill": "kill-port --port 3000,4001,9011",
+    "start": "yarn run taskkill && lerna run --scope {@project/backend,@project/frontend} start --parallel"
   },
   "devDependencies": {
     "@babel/core": "7.17.5",
