@@ -1,22 +1,30 @@
 import styled from "@emotion/styled";
 import defaultButton from "../../../assets/images/button-white.png";
+import actionButton from "../../../assets/images/button-yellow.png";
+import disabledButton from "../../../assets/images/button-gray.png";
 
 const getBackgroundImage = (theme) => {
   switch (theme) {
+    case "action":
+      return actionButton;
+    case "disabled":
+      return disabledButton;
     default:
       return defaultButton;
   }
 };
 
-const Wrapper = styled.button`
+const StyledButton = styled.button`
   background-color: transparent;
-  background-image: url(${(theme) => getBackgroundImage(theme)});
+  background-image: url(${({ theme }) => getBackgroundImage(theme)});
   background-repeat: no-repeat;
   border: none;
   width: 236px;
   height: 63px;
   font-size: 18px;
   padding: 0 0 9px 0;
+  color: ${({ theme }) => (theme === "disabled" ? "#A5A5A5" : "black")};
+
   &:focus {
     outline: none;
   }
@@ -26,10 +34,11 @@ const Wrapper = styled.button`
 `;
 
 const Button = (props) => {
+  console.log(props);
   return (
-    <Wrapper theme={props.theme} onClick={props.onClick}>
+    <StyledButton theme={props.theme} onClick={props.onClick}>
       {props.text}
-    </Wrapper>
+    </StyledButton>
   );
 };
 
