@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import numberBox from '../assets/images/numberBox.svg';
+import Layout from '../components/Layout';
+import Button from '@project/stories/src/components/atom/Button';
 
-const Wrapper = styled.div`
-
-`;
 const Frame = styled.div`
   margin: 0 auto;
   width: 318px;
@@ -25,6 +24,7 @@ const BoxWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 24px;
+  margin-bottom: 50px;
 `;
 
 const BoxFrame = styled.div`
@@ -49,11 +49,11 @@ const Box = styled.button`
   cursor: pointer;
   color: #fff;
   font-size: 24px;
+  font: 
 `;
 
 const colors = ['#FF5F0F', '#FFF27B', '#82E8CF', '#79BBE5'];
 
-// 추후 wrapper, title, button 추후 공통 컴포넌트로 변경
 export const Template = ({
   awardsImage,
   setTemplateSelectDone,
@@ -69,7 +69,8 @@ export const Template = ({
   }
 
   return (
-    <Wrapper>
+    <Layout
+      title="어울리는 상장을 골라보상!">
       <Frame>
         <Image src={selectedAwardImg} />
       </Frame>
@@ -88,7 +89,10 @@ export const Template = ({
           )
         }
       </BoxWrapper>
-      <button onClick={() => setTemplateSelectDone(true)}>다음</button>
-    </Wrapper>
+      <Button
+        onClick={() => setTemplateSelectDone(true)}
+        text="다음"
+        theme="action" />
+    </Layout>
   );
 };
