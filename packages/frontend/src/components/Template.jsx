@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import numberBox from '../assets/images/numberBox.svg';
 import Layout from '../components/Layout';
@@ -18,14 +18,13 @@ const Frame = styled.div`
 const Image = styled.img`
   width: 310px;
   height: 386px;
-`
+`;
 const BoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
   margin-bottom: 50px;
-  
 `;
 
 const BoxFrame = styled.div`
@@ -34,9 +33,9 @@ const BoxFrame = styled.div`
   margin-right: 16px;
   background-image: url(${numberBox});
   background-repeat: no-repeat;
-  : last-child {
-  margin-right: 0;
-}
+  :last-child {
+    margin-right: 0;
+  }
 `;
 
 const Box = styled.button`
@@ -50,50 +49,36 @@ const Box = styled.button`
   cursor: pointer;
   color: #fff;
   font-size: 24px;
-  font-family:'UhBeeSe_hyun';
+  font-family: 'UhBeeSe_hyun';
 `;
 
-const colors = ['#FF5F0F', '#FFF27B', '#82E8CF', '#79BBE5'];
-
 export const Template = ({
-  awardsImage,
-  setTemplateSelectDone,
-  setSelectedAwardImg,
-  selectedAwardImg
+  handleNextButton,
+  colorClicked,
+  selectedAwardImg,
+  changeItems,
+  colors,
 }) => {
-
-  const [colorClicked, setColorClicked] = useState(colors[0]);
-
-  const changeTemplate = (color, index) => {
-    setColorClicked(color);
-    setSelectedAwardImg(awardsImage[index]);
-  }
-
   return (
-    <Layout
-      title="어울리는 상장을 골라보상!">
+    <Layout title="어울리는 상장을 골라보상!">
       <Frame>
         <Image src={selectedAwardImg} />
       </Frame>
       <BoxWrapper>
-        {
-          colors.map((color, index) => (
-            <BoxFrame>
-              <Box
-                onClick={() => changeTemplate(color, index)}
-                clicked={colorClicked}
-                key={color}
-                color={color}
-              >{index + 1}</Box>
-            </BoxFrame>
-          )
-          )
-        }
+        {colors.map((color, index) => (
+          <BoxFrame key={index}>
+            <Box
+              onClick={() => changeItems(index, 'templateId')}
+              clicked={colorClicked}
+              key={color}
+              color={color}
+            >
+              {index + 1}
+            </Box>
+          </BoxFrame>
+        ))}
       </BoxWrapper>
-      <Button
-        onClick={() => setTemplateSelectDone(true)}
-        text="다음"
-        theme="action" />
+      <Button onClick={handleNextButton} text="다음" theme="action" />
     </Layout>
   );
 };

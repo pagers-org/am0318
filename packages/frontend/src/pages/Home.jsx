@@ -19,15 +19,12 @@ export const Home = () => {
 
   const onClickStart = () => {
     navigate('/main');
-  }
+  };
 
   return (
     <Layout title="당신에게 주겠상">
       <Image src={oathImg} />
-      <Button
-        onClick={onClickStart}
-        text="시작하기"
-        theme="action" />
+      <Button onClick={onClickStart} text="시작하기" theme="action" />
     </Layout>
   );
 };
