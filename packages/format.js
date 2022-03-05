@@ -17,7 +17,7 @@ export const db_format = {
       content: '수상 내용',
       creation: '2022-03-05',
       template: 'template 아이디',
-      reciver: { userId: 'user 아이디' },
+      reciver: 'user 아이디',
     },
   },
   template: {
