@@ -1,13 +1,13 @@
-import styled from "@emotion/styled";
-import defaultButton from "../../../assets/images/button-white.svg";
-import actionButton from "../../../assets/images/button-yellow.svg";
-import disabledButton from "../../../assets/images/button-gray.svg";
+import styled from '@emotion/styled';
+import defaultButton from '../../../assets/images/button-white.svg';
+import actionButton from '../../../assets/images/button-yellow.svg';
+import disabledButton from '../../../assets/images/button-gray.svg';
 
-const getBackgroundImage = (theme) => {
+const getBackgroundImage = theme => {
   switch (theme) {
-    case "action":
+    case 'action':
       return actionButton;
-    case "disabled":
+    case 'disabled':
       return disabledButton;
     default:
       return defaultButton;
@@ -23,7 +23,7 @@ const StyledButton = styled.button`
   height: 63px;
   font-size: 18px;
   padding: 0 0 9px 0;
-  color: ${({ theme }) => (theme === "disabled" ? "#A5A5A5" : "black")};
+  color: ${({ theme }) => (theme === 'disabled' ? '#A5A5A5' : 'black')};
 
   &:focus {
     outline: none;
@@ -33,7 +33,8 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = (props) => {
+const Button = props => {
+  console.log(props);
   return (
     <StyledButton theme={props.theme} onClick={props.onClick}>
       {props.text}
