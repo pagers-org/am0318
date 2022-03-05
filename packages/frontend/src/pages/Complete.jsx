@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 36px;
+  margin: 0px 25px;
 `;
 const ButtonWrapper = styled.div`
   display: flex;
