@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Complete = () => {
-  return <div></div>;
+  return <div>Complete</div>;
 };
