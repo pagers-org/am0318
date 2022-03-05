@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import defaultButton from "../../../assets/images/button-white.png";
-import actionButton from "../../../assets/images/button-yellow.png";
-import disabledButton from "../../../assets/images/button-gray.png";
+import defaultButton from "../../../assets/images/button-white.svg";
+import actionButton from "../../../assets/images/button-yellow.svg";
+import disabledButton from "../../../assets/images/button-gray.svg";
 
 const getBackgroundImage = (theme) => {
   switch (theme) {
