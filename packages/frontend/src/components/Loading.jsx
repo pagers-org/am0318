@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import cup from '../assets/images/cup.png';
-import cloud from '../assets/images/cloud.png';
-import bomb from '../assets/images/bomb.png';
-
-const Wrapper = styled.div`
-
-`;
+import wink from '../assets/images/wink.svg';
+import smile from '../assets/images/smile.svg';
+import cute from '../assets/images/cute.svg';
+import Layout from '../components/Layout';
 
 const ImageWrapper = styled.div`
   width: 140px;
@@ -30,8 +27,9 @@ const Text = styled.p`
 `;
 
 function Loading() {
+
   const [icon, setIcon] = useState(null);
-  const images = [cup, cloud, bomb];
+  const images = [smile, wink, cute];
 
   useEffect(() => {
     let i = 0;
@@ -45,7 +43,7 @@ function Loading() {
   }, []);
 
   return (
-    <Wrapper>
+    <Layout>
       <ImageWrapper>
         <Image src={icon} />
       </ImageWrapper>
@@ -53,7 +51,7 @@ function Loading() {
         <Text>상장을 출력하고 있상!</Text>
         <Text>조금만 기다리상!</Text>
       </TextWrapper>
-    </Wrapper>
+    </Layout>
   );
 }
 

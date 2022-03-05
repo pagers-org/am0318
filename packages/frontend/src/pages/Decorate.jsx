@@ -5,9 +5,17 @@ import Button from '@project/stories/src/components/atom/Button';
 import Layout from '../components/Layout';
 import Input from '../components/Input';
 import SelectStamp from '../components/SelectStamp';
+import { Template } from '../components/Template';
+import award_mint from '../assets/images/award_mint.svg';
+import award_blue from '../assets/images/award_blue.svg';
+import award_yellow from '../assets/images/award_yellow.svg';
+import award_orange from '../assets/images/award_orange.svg';
+
 const Decorate = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
+  const [templateSelectDone, setTemplateSelectDone] = useState(false);
+  const [selectedAwardImg, setSelectedAwardImg] = useState(award_orange);
 
   const handleNextButton = () => {
     if (currentPage === 2) {
@@ -25,7 +33,12 @@ const Decorate = () => {
       case 0:
         return (
           <>
-            <h1>예츄 컴포넌트 자리</h1>
+            <Template
+              awardsImage={awardsImage}
+              selectedAwardImg={selectedAwardImg}
+              setSelectedAwardImg={setSelectedAwardImg}
+              setTemplateSelectDone={setTemplateSelectDone}
+            />
           </>
         );
       case 1:
@@ -50,4 +63,3 @@ const Decorate = () => {
 
   return <div>{renderComponents(currentPage)}</div>;
 };
-export default Decorate;
