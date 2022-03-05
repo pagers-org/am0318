@@ -22,3 +22,4 @@ export const Decorate = () => {
     </>
   );
 };
+export default Decorate;
