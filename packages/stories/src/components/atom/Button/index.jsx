@@ -3,7 +3,7 @@ import defaultButton from '../../../assets/images/button-white.svg';
 import actionButton from '../../../assets/images/button-yellow.svg';
 import disabledButton from '../../../assets/images/button-gray.svg';
 
-const getBackgroundImage = theme => {
+const getBackgroundImage = (theme) => {
   switch (theme) {
     case 'action':
       return actionButton;
@@ -33,10 +33,14 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = props => {
+const Button = (props) => {
   console.log(props);
   return (
-    <StyledButton theme={props.theme} onClick={props.onClick}>
+    <StyledButton
+      theme={props.theme}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
       {props.text}
     </StyledButton>
   );
