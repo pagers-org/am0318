@@ -2,22 +2,22 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "jest": true,
-    "node": true
+    "node": true // "module" is not defined. 에러가 발생하면 기입
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "prettier"
+    "prettier",
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["react", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": [

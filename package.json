@@ -5,20 +5,20 @@
   ],
   "private": true,
   "scripts": {
-    "taskkill": "cross-env NODE_ENV=production kill-port --port 3000,4000",
+    "taskkill": "cross-env NODE_ENV=production kill-port --port 3000,4000,9011",
     "build": "cross-env NODE_ENV=production lerna run --parallel build",
     "bootstrap": "cross-env NODE_ENV=production lerna bootstrap --use-workspaces",
     "dev:back": "yarn run taskkill && lerna run --scope @project/backend dev --parallel",
     "dev:front": "yarn run taskkill && lerna run --scope @project/frontend dev --parallel",
-    "start": "yarn run taskkill && lerna run --scope @project/react-redux start --parallel"
+    "dev:stories": "yarn run taskkill && lerna run --scope @project/stories start --parallel"
   },
   "devDependencies": {
-    "@babel/core": "7.17.0",
+    "@babel/core": "7.17.5",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "cross-env": "^7.0.3",
-    "eslint": "^8.7.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.25.4",
