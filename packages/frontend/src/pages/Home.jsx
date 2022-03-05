@@ -1,5 +1,11 @@
 import React from 'react';
+import TextArea from '../components/TextArea';
 
-export const Home = () => {
-  return <div>HOME</div>;
+const Home = () => {
+  return (
+    <div>
+      <TextArea></TextArea>
+    </div>
+  );
 };
+export default Home;
