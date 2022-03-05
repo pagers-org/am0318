@@ -1,8 +1,10 @@
-// import { StyledThumbnail } from './Thumbnail.style';
+import styled from 'styled-components';
 
 /* eslint-disable */
-const Title = () => {
-  return <h1>Hello</h1>;
+const index = ({ children }) => {
+  return <Title>{children}</Title>;
 };
 
-export default Title;
+export default index;
+
+export const Title = styled.h1``;
