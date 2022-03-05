@@ -26,4 +26,5 @@ const Wrapper = styled.main`
 const LayoutTitle = styled(Title)`
   font-size: 24px;
   margin: 0px 36px;
+  text-align: center;
 `;
