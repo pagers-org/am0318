@@ -1,82 +1,54 @@
 import initFirebase from '../config';
 import 'firebase/compat/firestore';
-import Student from '../models/user';
+import { generateId } from '../utils';
+
 const firestore = initFirebase.firestore();
 
-export const addStudent = async (req, res) => {
+export const addAward = async (req, res) => {
   try {
-    const data = req.body;
-    await firestore.collection('students').doc().set(data);
-    res.send('Record saved successfuly');
+    const { userId, imageData, template } = req.body;
+    const awardId = generateId();
+    const data = {
+      reciver: userId,
+      imageData,
+      creation: `${new Date()}`,
+      template,
+    };
+    const reciver = await firestore.collection('am0318-award').doc(userId);
+    const currentData = await reciver.get().data();
+    currentData.awards.unshift(data);
+    await reciver.set(currentData);
+    await firestore.collection('am0318-award').doc(awardId).set(data);
+    res.status(200).json({ data });
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(403).send(error.message);
   }
 };
 
-export const getAllStudents = async (req, res) => {
+export const getAllAwards = async (req, res) => {
   try {
-    const students = await firestore.collection('students');
-    const data = await students.get();
-    const studentsArray = [];
-    if (data.empty) {
+    const { userId } = req.params;
+    const users = await firestore.collection('am0318-user').doc(userId).get();
+    if (users.empty) {
       res.status(404).send('No student record found');
     } else {
-      data.forEach(doc => {
-        const student = new Student(
-          doc.id,
-          doc.data().firstName,
-          doc.data().lastName,
-          doc.data().fatherName,
-          doc.data().class,
-          doc.data().age,
-          doc.data().phoneNumber,
-          doc.data().subject,
-          doc.data().year,
-          doc.data().semester,
-          doc.data().status,
-        );
-        studentsArray.push(student);
-      });
-      res.send(studentsArray);
+      res.status(200).json({ data: users.awards });
     }
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(403).send(error.message);
   }
 };
 
-export const getStudent = async (req, res) => {
+export const getDetailAward = async (req, res) => {
   try {
-    const id = req.params.id;
-    const student = await firestore.collection('students').doc(id);
-    const data = await student.get();
+    const { awardId } = req.params;
+    const data = await firestore.collection('am0318-user').doc(awardId).get();
     if (!data.exists) {
       res.status(404).send('Student with the given ID not found');
     } else {
-      res.send(data.data());
+      res.status(200).json({ data: data.data() });
     }
   } catch (error) {
-    res.status(400).send(error.message);
-  }
-};
-
-export const updateStudent = async (req, res) => {
-  try {
-    const id = req.params.id;
-    const data = req.body;
-    const student = await firestore.collection('students').doc(id);
-    await student.update(data);
-    res.send('Student record updated successfuly');
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-};
-
-export const deleteStudent = async (req, res) => {
-  try {
-    const id = req.params.id;
-    await firestore.collection('students').doc(id).delete();
-    res.send('Record deleted successfuly');
-  } catch (error) {
-    res.status(400).send(error.message);
+    res.status(403).send(error.message);
   }
 };
