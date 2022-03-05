@@ -28,12 +28,7 @@ const StyledInput = styled.input`
   }
 `;
 
-function Input({
-  placeholder,
-  name,
-  onChange,
-  value,
-  ...rest }) {
+function Input({ placeholder, name, onChange, value, ...rest }) {
   return (
     <Wrapper value={value ? true : false}>
       <StyledInput

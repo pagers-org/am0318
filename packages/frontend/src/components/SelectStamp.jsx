@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from './Layout';
 import styled from 'styled-components';
 import Button from '@project/stories/src/components/atom/Button';
 import { getImage, getStamp } from '../utils/GetSvg';
-const SelectStamp = ({ handleClick }) => {
-  const [selectedStamp, setSelectedStamp] = useState(0);
+const SelectStamp = ({ handleClick, changeItems, selectedStamp }) => {
   const DESC_STAMP = [
     { title: 'GOOD LUCK', desc: '행운이 가득하다' },
     { title: 'SUPER!!!', desc: '뭐든지 잘할 수 있다' },
@@ -13,10 +12,6 @@ const SelectStamp = ({ handleClick }) => {
     { title: 'love ya', desc: '사랑에 빠진다' },
     { title: 'don’t worry', desc: '걱정이 마법처럼 사라진다' },
   ];
-
-  const handleSelectStamp = index => {
-    setSelectedStamp(index);
-  };
 
   return (
     <Layout title={'도장을 찍고 완성하상!'}>
@@ -28,7 +23,7 @@ const SelectStamp = ({ handleClick }) => {
       <StyledGrid>
         {DESC_STAMP.map((item, index) => {
           return (
-            <div key={item.title + item.desc} onClick={() => handleSelectStamp(index)}>
+            <div key={item.title + item.desc} onClick={() => changeItems(index, 'stickerId')}>
               <img src={getStamp(index)} />
             </div>
           );

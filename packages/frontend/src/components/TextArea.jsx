@@ -2,11 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import Background from '@project/stories/src/assets/icon/textarea.svg';
 
-const TextArea = () => {
+const TextArea = ({ handleChange }) => {
   return (
     <>
-      <label htmlFor="story">상장 내용</label>
-      <StyledTextArea mid="story" name="story" rows="5" cols="33" maxLength="100"></StyledTextArea>
+      <StyledTextArea
+        onChange={e => handleChange(e)}
+        mid="description"
+        name="description"
+        rows="5"
+        cols="33"
+        maxLength="100"
+        placeholder="따뜻한 말로 적어주상!"
+      ></StyledTextArea>
     </>
   );
 };
