@@ -35,4 +35,5 @@ const StyledTextArea = styled.textarea`
   overflow: hidden;
   padding: 20px 90px 0 30px;
   letter-spacing: 0.9;
+  outline: none;
 `;
