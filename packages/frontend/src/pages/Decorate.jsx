@@ -7,6 +7,7 @@ import award_mint from '../assets/images/award_mint.svg';
 import award_blue from '../assets/images/award_blue.svg';
 import award_yellow from '../assets/images/award_yellow.svg';
 import award_orange from '../assets/images/award_orange.svg';
+import Loading from '../components/Loading';
 
 const Decorate = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -30,7 +31,9 @@ const Decorate = () => {
 
   const handleNextButton = () => {
     if (currentPage === 2) {
-      navigate('/complete', { state: awardParams });
+      setTimeout(() => {
+        navigate('/complete', { state: awardParams });
+      }, 2500);
     }
     setCurrentPage((prev) => prev + 1);
   };
@@ -62,6 +65,9 @@ const Decorate = () => {
             handleClick={() => handleNextButton()}
           />
         );
+
+      case 3:
+        return <Loading />;
       default:
         break;
     }
