@@ -8,7 +8,9 @@ function ResultAward({ awardParam, receiveName, sender }) {
 
   return (
     <Wrapper>
-      <AwardWrapper backgroundImage={getTemplate(parseInt(awardParam.templateId))}>
+      <AwardWrapper
+        backgroundImage={getTemplate(parseInt(awardParam.templateId))}
+      >
         <AwardTitle>{awardParam?.title || ''}</AwardTitle>
         <AwardDetail>
           <DetailTop>
@@ -29,8 +31,8 @@ function ResultAward({ awardParam, receiveName, sender }) {
 
 export default ResultAward;
 
-const Wrapper = styled.main`
-  margin: 30px 0px;
+const Wrapper = styled.div`
+  margin-top: 17px;
   display: flex;
   justify-content: center;
   width: 318px;
