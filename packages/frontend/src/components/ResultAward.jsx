@@ -12,7 +12,7 @@ function ResultAward(props) {
   return (
     <Wrapper>
       <AwardWrapper
-        backgroundImage={getTemplate(parseInt(award.stickerId))}>
+        backgroundImage={getTemplate(parseInt(award.templateId))}>
         <AwardTitle>{award.title}</AwardTitle>
         <AwardDetail>
           <DetailTop>
