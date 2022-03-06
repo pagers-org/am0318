@@ -1,4 +1,4 @@
-import { postCreateUser, postUpdateAward, getUser } from '../api';
+import { postCreateUser, postUpdateAward, getUser, getAwards } from '../api';
 import { ERROR_MESSAGE, USER } from '../constants';
 import { setLocalStorage, getLocalStorage } from '../utils';
 
@@ -34,6 +34,17 @@ const Service = () => {
       const { data } = await postUpdateAward(userId, awardParams);
       console.log('data', data);
       return data.data;
+    } catch (e) {
+      console.log(e);
+      alert(ERROR_MESSAGE.HTTP_REQUEST_FAILURE);
+    }
+  };
+
+  self.getAwards = async () => {
+    try {
+      const userId = getLocalStorage(USER.USER_ID);
+      const { data } = await getAwards(userId);
+      return data.awards;
     } catch (e) {
       console.log(e);
       alert(ERROR_MESSAGE.HTTP_REQUEST_FAILURE);

@@ -19,3 +19,7 @@ export const getUser = userId => {
 export const postUpdateAward = (userId, awardParams) => {
   return api.post('/award', { userId, template: awardParams, imageData: {} });
 };
+
+export const getAwards = (userId) => {
+  return api.get(`/award/${userId}`);
+};
