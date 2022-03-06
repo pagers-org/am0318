@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import Layout from '../components/Layout';
 import MainImage from '../assets/images/main-image.png';
 import styled from 'styled-components';
@@ -8,14 +8,17 @@ import { BUTTON_THEME, SEND_URL, TIMEOUT, USER } from '../constants';
 import Service from '../service';
 import { getLocalStorage } from '../utils';
 import Snackbar from '@mui/material/Snackbar';
-
+import { useNavigate } from 'react-router-dom';
+import NicknameContext from '../context/NicknameContext'
 const localstorageNickname = getLocalStorage(USER.NICKNAME);
 
 const Main = () => {
   const [nickname, setNickname] = useState(localstorageNickname || '');
+  const { yourNickname, setYourNickname } = useContext(NicknameContext);
   const [linkShareTheme, setLinkShareTheme] = useState(BUTTON_THEME.DISABLED);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const copyUrlRef = useRef(null);
+  const navigate = useNavigate();
 
   const service = Service();
 
@@ -35,6 +38,7 @@ const Main = () => {
 
   const onChangeName = (e) => {
     setNickname(e.target.value);
+    setYourNickname(e.target.value);
   };
 
   const onClickLinkShare = async (e) => {
@@ -47,6 +51,10 @@ const Main = () => {
     e.target.focus();
     setIsSnackbarOpen(true);
   };
+
+  const onClickViewStorage = () => {
+    navigate(`/main/${getLocalStorage(USER.USER_ID)}/storage`);
+  }
 
   return (
     <Layout title='상장에 적힐 당신의 이름을 멋지게 적어주상!'>
@@ -71,7 +79,11 @@ const Main = () => {
           value={`${SEND_URL}/${getLocalStorage(USER.USER_ID)}`}
           readOnly
         />
-        <Button theme={BUTTON_THEME.DEFAULT} text='상장 콜렉션 보기' />
+        <Button
+          theme={BUTTON_THEME.DEFAULT}
+          text='상장 콜렉션 보기'
+          onClick={onClickViewStorage}
+        />
       </ButtonWrapper>
       <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}

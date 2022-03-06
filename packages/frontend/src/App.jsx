@@ -4,6 +4,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Main = lazy(() => import('./pages/Main'));
 const Decorate = lazy(() => import('./pages/Decorate'));
 const Complete = lazy(() => import('./pages/Complete'));
+const Storage = lazy(() => import('./pages/Storage'));
 const ErrorPage = lazy(() => import('./pages/404'));
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       {/* 상장 보내는 화면 */}
       <Route path={'/main/:id'} element={<Main />} />
       {/* 컬렉션 화면 */}
-      <Route path={'/main/:id/storage'} element={<Main />} />
+      <Route path={'/main/:id/storage'} element={<Storage />} />
       <Route path={'/decorate'} element={<Decorate />} />
       <Route path={'/complete'} element={<Complete />} />
       {/* 404 페이지 작업 */}
