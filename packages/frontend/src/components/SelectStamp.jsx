@@ -13,6 +13,7 @@ const SelectStamp = ({ handleClick, changeItems, selectedStamp }) => {
     { title: 'don’t worry', desc: '걱정이 마법처럼 사라진다' },
   ];
 
+
   return (
     <Layout title={'도장을 찍고 완성하상!'}>
       <StyledStamp selected={getImage(selectedStamp)}>
@@ -42,18 +43,20 @@ const StyledGrid = styled.div`
   grid-template-rows: repeat(2, 50px);
   grid-gap: 50px 30px;
   margin-bottom: 20px;
+  margin-top: 35px;
   div {
     cursor: pointer;
   }
 `;
 const StyledStamp = styled.div`
+  margin-top: 40px;
   min-width: 216px;
   min-height: 216px;
   overflow: hidden;
+
   div {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 216px;
+    height: 216px;
     background-image: ${({ selected }) => `url(${selected})`};
   }
 `;
