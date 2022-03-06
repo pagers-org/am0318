@@ -17,5 +17,5 @@ ReactDOM.render(
       </BrowserRouter>
     </React.Suspense>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
