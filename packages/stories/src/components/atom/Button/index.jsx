@@ -34,7 +34,6 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props) => {
-  console.log(props);
   return (
     <StyledButton
       theme={props.theme}
