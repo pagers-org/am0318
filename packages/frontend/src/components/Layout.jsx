@@ -20,7 +20,7 @@ const Wrapper = styled.main`
   flex-direction: column;
   align-items: center;
   margin: 24px 0px 70px 0px;
-  height: calc(100vh - 94px);
+  height: 100%;
 `;
 
 const LayoutTitle = styled(Title)`
