@@ -4,6 +4,9 @@ import "swiper/css/bundle";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  height: 100%;
+  width: 100%;
+
   .swiper {
     width: 100%;
     height: 100%;
@@ -31,7 +34,6 @@ const Carousel = ({ children }) => {
       <Swiper
         slidesPerView={2}
         spaceBetween={30}
-        loop={true}
         centeredSlides={true}
         className="mySwiper"
       >
