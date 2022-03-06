@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import AwardContents from '../components/AwardContents';
 import SelectStamp from '../components/SelectStamp';
 import { Template } from '../components/Template';
@@ -9,8 +9,10 @@ import { getTemplate } from '../utils/GetSvg';
 const Decorate = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
+  const { id } = useParams();
   const COLORS = ['#FF5F0F', '#FFF27B', '#82E8CF', '#79BBE5'];
   const [awardParams, setAwardParams] = useState({
+    userId: id,
     title: '',
     description: '',
     templateId: '0',

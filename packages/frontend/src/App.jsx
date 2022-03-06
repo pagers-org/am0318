@@ -16,7 +16,7 @@ function App() {
       <Route path={'/main/:id'} element={<Main />} />
       {/* 컬렉션 화면 */}
       <Route path={'/main/:id/storage'} element={<Storage />} />
-      <Route path={'/decorate'} element={<Decorate />} />
+      <Route path={'/:id/decorate'} element={<Decorate />} />
       <Route path={'/complete'} element={<Complete />} />
       {/* 404 페이지 작업 */}
       <Route path={'/404'} element={<ErrorPage />} />
