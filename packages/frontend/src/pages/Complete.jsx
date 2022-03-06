@@ -1,19 +1,22 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Button from '@project/stories/src/components/atom/Button';
 import ResultAward from '../components/ResultAward';
 
 const Complete = () => {
-  const name = '테스트';
-  const sender = '반가워!';
+  const location = useLocation();
+  const name = 'hello';
+  const sender = 'hi';
+
   return (
     <Layout title={`${name}가 ${sender}에게 수여할 상장이 준비됐상!`}>
       <Wrapper>
-        <ResultAward />
+        <ResultAward awardParam={location?.state} />
         <ButtonWrapper>
-          <Button theme="action" text="상장 수여하겠상!" />
-          <Button text="나도 받고 싶상!" />
+          <Button theme='action' text='상장 수여하겠상!' />
+          <Button text='나도 받고 싶상!' />
         </ButtonWrapper>
       </Wrapper>
     </Layout>
