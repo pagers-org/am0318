@@ -11,7 +11,7 @@ const TextArea = ({ handleChange }) => {
         name="description"
         rows="5"
         cols="33"
-        maxLength="100"
+        maxLength="60"
         placeholder="따뜻한 말로 적어주상!"
       ></StyledTextArea>
     </>
@@ -30,9 +30,9 @@ const StyledTextArea = styled.textarea`
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  font-size: 14px;
+  font-size: 16px;
   box-sizing: border-box;
   overflow: hidden;
-  padding: 10px 107px 0 30px;
+  padding: 20px 90px 0 30px;
   letter-spacing: 0.9;
 `;
