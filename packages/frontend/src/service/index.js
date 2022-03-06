@@ -44,8 +44,7 @@ const Service = () => {
     try {
       const userId = getLocalStorage(USER.USER_ID);
       const { data } = await getAwards(userId);
-      console.log('data', data);
-      return data.data;
+      return data.awards;
     } catch (e) {
       console.log(e);
       alert(ERROR_MESSAGE.HTTP_REQUEST_FAILURE);
