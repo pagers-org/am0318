@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { getImage, getTemplate } from '../utils/GetSvg';
+import NicknameContext from '../context/NicknameContext';
 
 function ResultAward({ awardParam }) {
   const today = new Date();
   const sender = '반가워!';
   const date = `${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일`;
+  const { yourNickname, senderNickname } = useContext(NicknameContext);
 
   return (
     <Wrapper>
@@ -19,7 +21,7 @@ function ResultAward({ awardParam }) {
           </DetailTop>
           <DetailBottom>
             <AwardLine>{date}</AwardLine>
-            <AwardLine>{sender}</AwardLine>
+            <AwardLine>{yourNickname}</AwardLine>
           </DetailBottom>
         </AwardDetail>
         <StampImg src={getImage(parseInt(awardParam.stickerId))} />

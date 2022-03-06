@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
@@ -6,10 +6,9 @@ import Button from '@project/stories/src/components/atom/Button';
 import ResultAward from '../components/ResultAward';
 import Service from '../service';
 import { useNavigate } from 'react-router-dom';
-import NicknameContext from '../context/NicknameContext';
 
 const Complete = () => {
-  const { yourNickname } = useContext(NicknameContext);
+
   const { state } = useLocation();
   const name = 'hello';
   const sender = 'hi';
@@ -29,7 +28,7 @@ const Complete = () => {
   return (
     <Layout title={`${name}가 ${sender}에게 수여할 상장이 준비됐상!`}>
       <Wrapper>
-        <ResultAward name={yourNickname} awardParam={state} />
+        <ResultAward name={''} awardParam={state} />
         <ButtonWrapper>
           <Button theme="action" text="상장 수여하겠상!" onClick={() => handleSaveAward(state)} />
           <Button text="나도 받고 싶상!" onClick={() => navigate('/')} />
