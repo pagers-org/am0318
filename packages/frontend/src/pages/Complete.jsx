@@ -1,13 +1,12 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import Button from '@project/stories/src/components/atom/Button';
 import ResultAward from '../components/ResultAward';
 import Service from '../service';
 import { useNavigate } from 'react-router-dom';
-import { getLocalStorage } from '../utils';
-import { USER, TIMEOUT } from '../constants';
+import { TIMEOUT } from '../constants';
 import NicknameContext from '../context/NicknameContext';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -16,14 +15,11 @@ const Complete = () => {
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [receiveName, setReceiveName] = useState('');
   const { state } = useLocation();
-  const name = getLocalStorage(USER.NICKNAME);
-  const sender = getLocalStorage(USER.NICKNAME);
+  const name = 'hello';
   const service = Service();
   const navigate = useNavigate();
   const handleSaveAward = async state => {
-    const data = await service.updateAward(state);
-    setIsSnackbarOpen(true);
-    console.log(data);
+    await service.updateAward(state).then(() => setIsSnackbarOpen(true));
   };
 
   useEffect(() => {
@@ -40,7 +36,7 @@ const Complete = () => {
   }, [isSnackbarOpen]);
 
   return (
-    <Layout title={`${name}가 ${sender}에게 수여할 상장이 준비됐상!`}>
+    <Layout title={`${name}가 ${receiveName}에게 수여할 상장이 준비됐상!`}>
       <Wrapper>
         <ResultAward name={yourNickname} awardParam={state} receiveName={receiveName} />
         <ButtonWrapper>
