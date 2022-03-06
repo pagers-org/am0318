@@ -15,4 +15,5 @@ export const StorageTitle = styled.h2`
   width: 305px;
   height: 68px;
   padding-top: 12px;
+  margin: 28px 0 35px 0;
 `;
