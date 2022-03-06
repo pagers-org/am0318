@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { getImage, getTemplate } from '../utils/GetSvg';
 import NicknameContext from '../context/NicknameContext';
 
-function ResultAward({ awardParam }) {
+function ResultAward({ awardParam, receiveName }) {
+  console.log(receiveName);
   const today = new Date();
   const sender = '반가워!';
   const date = `${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일`;
@@ -15,7 +16,7 @@ function ResultAward({ awardParam }) {
         <AwardTitle>{awardParam?.title || ''}</AwardTitle>
         <AwardDetail>
           <DetailTop>
-            <AwardLine>{awardParam.name}는(은)</AwardLine>
+            <AwardLine>{receiveName}는(은)</AwardLine>
             <AwardLine>{awardParam?.description || ''}</AwardLine>
             <AwardLine>따라서 이 상장을 수여하겠상!</AwardLine>
           </DetailTop>
