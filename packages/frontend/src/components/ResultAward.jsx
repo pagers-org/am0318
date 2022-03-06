@@ -11,7 +11,8 @@ function ResultAward(props) {
 
   return (
     <Wrapper>
-      <AwardWrapper>
+      <AwardWrapper
+        backgroundImage={getTemplate(parseInt(award.stickerId))}>
         <AwardTitle>{award.title}</AwardTitle>
         <AwardDetail>
           <DetailTop>
@@ -41,7 +42,8 @@ const Wrapper = styled.main`
 `;
 const AwardWrapper = styled.div`
   position: relative;
-  // background-image: url(${templateImg});
+  background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
+  background-repeat: no-repeat;
   border: 2px solid #000000;
   max-width: 330px;
   max-height: 410px;
