@@ -9,7 +9,7 @@ function ResultAward({ awardParam }) {
 
   return (
     <Wrapper>
-      <AwardWrapper backgroundImage={getTemplate(parseInt(awardParam.stickerId))}>
+      <AwardWrapper backgroundImage={getTemplate(parseInt(awardParam.templateId))}>
         <AwardTitle>{awardParam?.title || ''}</AwardTitle>
         <AwardDetail>
           <DetailTop>
