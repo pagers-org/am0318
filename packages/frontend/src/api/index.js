@@ -21,5 +21,5 @@ export const postUpdateAward = (userId, awardParams) => {
 };
 
 export const getAwards = (userId) => {
-  return api.get('/award', { userId });
+  return api.get(`/award/${userId}`);
 };
