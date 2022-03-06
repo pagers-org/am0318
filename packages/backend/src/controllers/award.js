@@ -14,11 +14,17 @@ export const addAward = async (req, res) => {
       creation: `${new Date()}`,
       template,
     };
+    console.log(data);
     const reciver = await firestore.collection('am0318-award').doc(userId);
+    console.log(' await reciver.get().data()', await reciver.get().data());
     const currentData = await reciver.get().data();
+    console.log('2');
     currentData.awards.unshift(data);
+    console.log('3');
     await reciver.set(currentData);
+    console.log('4');
     await firestore.collection('am0318-award').doc(awardId).set(data);
+    console.log('5');
     res.status(200).json({ data });
   } catch (error) {
     res.status(403).send(error.message);

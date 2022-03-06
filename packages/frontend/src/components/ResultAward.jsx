@@ -2,22 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { getImage, getTemplate } from '../utils/GetSvg';
 
-function ResultAward(props) {
-  const award = props.awardParam;
+function ResultAward({ awardParam }) {
   const today = new Date();
-  const name = '노아';
   const sender = '반가워!';
   const date = `${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일`;
 
   return (
     <Wrapper>
-      <AwardWrapper
-        backgroundImage={getTemplate(parseInt(award.templateId))}>
-        <AwardTitle>{award.title}</AwardTitle>
+      <AwardWrapper backgroundImage={getTemplate(parseInt(awardParam.stickerId))}>
+        <AwardTitle>{awardParam?.title || ''}</AwardTitle>
         <AwardDetail>
           <DetailTop>
-            <AwardLine>{name}는(은)</AwardLine>
-            <AwardLine>{award.description}</AwardLine>
+            <AwardLine>{awardParam.name}는(은)</AwardLine>
+            <AwardLine>{awardParam?.description || ''}</AwardLine>
             <AwardLine>따라서 이 상장을 수여하겠상!</AwardLine>
           </DetailTop>
           <DetailBottom>
@@ -25,7 +22,7 @@ function ResultAward(props) {
             <AwardLine>{sender}</AwardLine>
           </DetailBottom>
         </AwardDetail>
-        <StampImg src={getImage(parseInt(award.stickerId))} />
+        <StampImg src={getImage(parseInt(awardParam.stickerId))} />
       </AwardWrapper>
     </Wrapper>
   );
