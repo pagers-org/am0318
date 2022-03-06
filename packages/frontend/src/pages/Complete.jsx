@@ -6,13 +6,15 @@ import Button from '@project/stories/src/components/atom/Button';
 import ResultAward from '../components/ResultAward';
 import Service from '../service';
 import { useNavigate } from 'react-router-dom';
+import { getLocalStorage } from '../utils';
+import { USER } from '../constants';
 import NicknameContext from '../context/NicknameContext';
 
 const Complete = () => {
   const { yourNickname } = useContext(NicknameContext);
   const { state } = useLocation();
-  const name = 'hello';
-  const sender = 'hi';
+  const name = getLocalStorage(USER.NICKNAME);
+  const sender = getLocalStorage(USER.NICKNAME);
   const service = Service();
   const navigate = useNavigate();
   const handleSaveAward = async state => {

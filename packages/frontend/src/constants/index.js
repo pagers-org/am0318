@@ -1,5 +1,5 @@
-export const BASE_URL = 'https://am0318.herokuapp.com/api';
-// export const BASE_URL = 'http://localhost:4001/api'; // 로컬 서버
+// export const BASE_URL = 'https://am0318.herokuapp.com/api';
+export const BASE_URL = 'http://localhost:4001/api'; // 로컬 서버
 
 export const SEND_URL = 'https://localhost:3000/send';
 

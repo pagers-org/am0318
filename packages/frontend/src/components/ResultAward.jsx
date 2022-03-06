@@ -73,6 +73,7 @@ const DetailBottom = styled.div``;
 const AwardLine = styled.p`
   margin: 20px 0px;
   font-weight: 900;
+  white-space: pre-line;
 `;
 const StampImg = styled.img`
   position: absolute;
