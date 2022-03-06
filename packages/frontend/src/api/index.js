@@ -5,8 +5,17 @@ const api = axios.create({
   baseURL: BASE_URL,
 });
 
-export const postCreateUser = (nickname) => {
+export const postCreateUser = nickname => {
   return api.post('/user', {
     nickname,
   });
+};
+
+export const getUser = userId => {
+  return api.get(`/${userId}`);
+};
+
+// {userId, imageData: '' , template: {title: '', description:'', templated: '', stickerId:''}
+export const postUpdateAward = (userId, awardParams) => {
+  return api.post('/award', { userId, template: awardParams, imageData: {} });
 };

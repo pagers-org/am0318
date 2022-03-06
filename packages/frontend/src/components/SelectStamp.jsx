@@ -13,23 +13,24 @@ const SelectStamp = ({ handleClick, changeItems, selectedStamp }) => {
     { title: 'don’t worry', desc: '걱정이 마법처럼 사라진다' },
   ];
 
-
   return (
     <Layout title={'도장을 찍고 완성하상!'}>
-      <StyledStamp selected={getImage(selectedStamp)}>
-        <div></div>
-      </StyledStamp>
-      <h4>{DESC_STAMP[selectedStamp]?.title}</h4>
-      <span>{DESC_STAMP[selectedStamp]?.desc}</span>
-      <StyledGrid>
-        {DESC_STAMP.map((item, index) => {
-          return (
-            <div key={item.title + item.desc} onClick={() => changeItems(index, 'stickerId')}>
-              <img src={getStamp(index)} />
-            </div>
-          );
-        })}
-      </StyledGrid>
+      <BoxWrapper>
+        <StyledStamp selected={getImage(selectedStamp)}>
+          <div></div>
+        </StyledStamp>
+        <h4>{DESC_STAMP[selectedStamp]?.title}</h4>
+        <span>{DESC_STAMP[selectedStamp]?.desc}</span>
+        <StyledGrid>
+          {DESC_STAMP.map((item, index) => {
+            return (
+              <div key={item.title + item.desc} onClick={() => changeItems(index, 'stickerId')}>
+                <img src={getStamp(index)} />
+              </div>
+            );
+          })}
+        </StyledGrid>
+      </BoxWrapper>
       <Button theme="action" text="다음" onClick={handleClick} />
     </Layout>
   );
@@ -59,4 +60,10 @@ const StyledStamp = styled.div`
     height: 216px;
     background-image: ${({ selected }) => `url(${selected})`};
   }
+`;
+const BoxWrapper = styled.div`
+  height: 100%;
+  margin-top: 24px;
+  margin-bottom: 50px;
+  text-align: center;
 `;
