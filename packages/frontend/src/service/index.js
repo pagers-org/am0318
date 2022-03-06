@@ -44,6 +44,7 @@ const Service = () => {
     try {
       const userId = getLocalStorage(USER.USER_ID);
       const { data } = await getAwards(userId);
+      //TODO: check if data is object or array
       return data.awards;
     } catch (e) {
       console.log(e);
