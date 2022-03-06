@@ -35,18 +35,21 @@ export default ResultAward;
 
 const Wrapper = styled.main`
   margin: 30px 0px;
-  width: 100%;
   display: flex;
   justify-content: center;
-  height: 100%;
+  width: 318px;
+  height: 392px;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const AwardWrapper = styled.div`
   position: relative;
   background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
   background-repeat: no-repeat;
-  border: 2px solid #000000;
-  max-width: 330px;
-  max-height: 410px;
+  width: 310px;
+  height: 386px;
   background-size: cover;
   background-position: center;
   box-sizing: border-box;
