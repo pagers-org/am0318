@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 
-export const NicknameContext = createContext();
+const NicknameContext = createContext();
 
 export function NicknameContextProvider({ children }) {
   const [nickname, setNickname] = useState('');
