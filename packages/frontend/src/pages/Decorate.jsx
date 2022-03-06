@@ -11,7 +11,7 @@ import award_orange from '../assets/images/award_orange.svg';
 const Decorate = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
-  const TEMPLATE_IMAGE = [award_mint, award_blue, award_yellow, award_orange];
+  const TEMPLATE_IMAGE = [award_orange, award_yellow, award_mint, award_blue];
   const COLORS = ['#FF5F0F', '#FFF27B', '#82E8CF', '#79BBE5'];
   const [awardParams, setAwardParams] = useState({
     title: '',
