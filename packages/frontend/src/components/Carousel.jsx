@@ -54,7 +54,7 @@ const Wrapper = styled.div`
 const Carousel = ({ children }) => {
   return (
     <Wrapper>
-      <Swiper slidesPerView={2} spaceBetween={20} centeredSlides={true} className="mySwiper">
+      <Swiper slidesPerView={children.length === 1 ? 1 : 2} spaceBetween={20} centeredSlides={true} className="mySwiper">
         {(children || []).map((c, key) => (
           <SwiperSlide key={key}>{c}</SwiperSlide>
         ))}
