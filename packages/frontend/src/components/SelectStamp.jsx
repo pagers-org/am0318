@@ -3,6 +3,7 @@ import Layout from './Layout';
 import styled from 'styled-components';
 import Button from '@project/stories/src/components/atom/Button';
 import { getImage, getStamp } from '../utils/GetSvg';
+import BottomButtonWrapper from './BottomButtonWrapper';
 const SelectStamp = ({ handleClick, changeItems, selectedStamp }) => {
   const DESC_STAMP = [
     { title: 'GOOD LUCK', desc: '행운이 가득하다' },
@@ -14,7 +15,7 @@ const SelectStamp = ({ handleClick, changeItems, selectedStamp }) => {
   ];
 
   return (
-    <Layout title={'도장을 찍고 완성하상!'}>
+    <Layout title={['도장을 찍고 완성하상!']}>
       <BoxWrapper>
         <StyledStamp selected={getImage(selectedStamp)}>
           <div></div>
@@ -24,14 +25,19 @@ const SelectStamp = ({ handleClick, changeItems, selectedStamp }) => {
         <StyledGrid>
           {DESC_STAMP.map((item, index) => {
             return (
-              <div key={item.title + item.desc} onClick={() => changeItems(index, 'stickerId')}>
+              <div
+                key={item.title + item.desc}
+                onClick={() => changeItems(index, 'stickerId')}
+              >
                 <img src={getStamp(index)} />
               </div>
             );
           })}
         </StyledGrid>
       </BoxWrapper>
-      <Button theme="action" text="다음" onClick={handleClick} />
+      <BottomButtonWrapper>
+        <Button theme='action' text='다음' onClick={handleClick} />
+      </BottomButtonWrapper>
     </Layout>
   );
 };

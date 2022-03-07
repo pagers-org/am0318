@@ -9,6 +9,9 @@ import Service from '../service';
 import { getLocalStorage } from '../utils';
 import Snackbar from '@mui/material/Snackbar';
 import { useNavigate } from 'react-router-dom';
+// import NicknameContext from '../context/NicknameContext';
+import BottomButtonWrapper from '../components/BottomButtonWrapper';
+
 const localstorageNickname = getLocalStorage(USER.NICKNAME);
 
 const Main = () => {
@@ -29,16 +32,14 @@ const Main = () => {
   }, [isSnackbarOpen]);
 
   useEffect(() => {
-    nickname
-      ? setLinkShareTheme(BUTTON_THEME.ACTION)
-      : setLinkShareTheme(BUTTON_THEME.DISABLED);
+    nickname ? setLinkShareTheme(BUTTON_THEME.ACTION) : setLinkShareTheme(BUTTON_THEME.DISABLED);
   }, [nickname]);
 
-  const onChangeName = (e) => {
+  const onChangeName = e => {
     setNickname(e.target.value);
   };
 
-  const onClickLinkShare = async (e) => {
+  const onClickLinkShare = async e => {
     if (!getLocalStorage(USER.NICKNAME)) {
       const data = await service.signup(nickname);
       copyUrlRef.current.value = `${SEND_URL}/${data.userId}`;
@@ -51,23 +52,23 @@ const Main = () => {
 
   const onClickViewStorage = () => {
     navigate(`/main/${getLocalStorage(USER.USER_ID)}/storage`);
-  }
+  };
 
   return (
-    <Layout title='상장에 적힐 당신의 이름을 멋지게 적어주상!'>
+    <Layout title={['상장에 적힐 당신의 이름을', '멋지게 적어주상!']}>
       <Wrapper>
-        <MainImg src={MainImage} alt='메인 이미지' />
+        <MainImg src={MainImage} alt="메인 이미지" />
         <Input
-          type='text'
-          placeholder='10자 이하의 멋진 이름'
+          type="text"
+          placeholder="10자 이하의 멋진 이름"
           value={nickname}
           onChange={onChangeName}
         />
       </Wrapper>
-      <ButtonWrapper>
+      <BottomButtonWrapper marginTop={86}>
         <Button
           theme={linkShareTheme}
-          text='링크 공유'
+          text="링크 공유"
           disabled={linkShareTheme === BUTTON_THEME.DISABLED}
           onClick={onClickLinkShare}
         ></Button>
@@ -76,17 +77,13 @@ const Main = () => {
           value={`${SEND_URL}/${getLocalStorage(USER.USER_ID)}`}
           readOnly
         />
-        <Button
-          theme={BUTTON_THEME.DEFAULT}
-          text='상장 콜렉션 보기'
-          onClick={onClickViewStorage}
-        />
-      </ButtonWrapper>
+        <Button theme={BUTTON_THEME.DEFAULT} text="상장 콜렉션 보기" onClick={onClickViewStorage} />
+      </BottomButtonWrapper>
       <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         open={isSnackbarOpen}
         onClose={() => setIsSnackbarOpen(false)}
-        message='링크가 복사되었습니다!'
+        message="링크가 복사되었습니다!"
       />
     </Layout>
   );
@@ -102,16 +99,6 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const ButtonWrapper = styled.div`
-  position: fixed;
-  bottom: 70px;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-top: 100px;
 `;
 
 const ClipboardTextarea = styled.textarea`

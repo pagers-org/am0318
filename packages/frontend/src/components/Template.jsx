@@ -4,6 +4,7 @@ import numberBox from '../assets/images/numberBox.svg';
 import Layout from '../components/Layout';
 import Button from '@project/stories/src/components/atom/Button';
 import '../assets/css/font.css';
+import BottomButtonWrapper from './BottomButtonWrapper';
 const Frame = styled.div`
   margin: 0 auto;
   width: 318px;
@@ -43,7 +44,8 @@ const Box = styled.button`
   margin-left: 8px;
   margin-top: 3px;
   height: 54px;
-  background-color: ${({ color, clicked }) => (clicked === color ? color : '#000')};
+  background-color: ${({ color, clicked }) =>
+    clicked === color ? color : '#000'};
   margin-right: 16px;
   border: none;
   cursor: pointer;
@@ -60,7 +62,7 @@ export const Template = ({
   colors,
 }) => {
   return (
-    <Layout title="어울리는 상장을 골라보상!">
+    <Layout title={['어울리는 상장을 골라보상!']}>
       <Frame>
         <Image src={selectedAwardImg} />
       </Frame>
@@ -78,7 +80,9 @@ export const Template = ({
           </BoxFrame>
         ))}
       </BoxWrapper>
-      <Button onClick={handleNextButton} text="다음" theme="action" />
+      <BottomButtonWrapper>
+        <Button onClick={handleNextButton} text='다음' theme='action' />
+      </BottomButtonWrapper>
     </Layout>
   );
 };
