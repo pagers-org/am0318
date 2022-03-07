@@ -3,6 +3,7 @@ import { BASE_URL } from '../constants';
 
 const api = axios.create({
   baseURL: BASE_URL,
+  timeout: 30000,
 });
 
 export const postCreateUser = nickname => {
@@ -20,6 +21,6 @@ export const postUpdateAward = awardParams => {
   return api.post('/award', awardParams);
 };
 
-export const getAwards = (userId) => {
+export const getAwards = userId => {
   return api.get(`/award/${userId}`);
 };
