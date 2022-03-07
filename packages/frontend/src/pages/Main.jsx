@@ -88,7 +88,7 @@ const Main = () => {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         open={isSnackbarOpen}
         onClose={() => setIsSnackbarOpen(false)}
-        message="링크가 복사되었습니다!"
+        message="링크가 복사되었습니다. 공유하고 상장을 받을 수 있어요!"
       />
     </Layout>
   );
