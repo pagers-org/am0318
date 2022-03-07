@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 
 dotenv.config();
 
@@ -18,8 +19,7 @@ const initFirebase = firebase.initializeApp(firebaseConfig);
 export const appConfig = {
   port: process.env.PORT,
   host: process.env.HOST,
-  url: process.env.HOST_URL,
   firebaseConfig,
 };
 
-export default initFirebase;
+export default initFirebase.firestore();
