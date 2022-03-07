@@ -49,7 +49,7 @@ function Sender() {
   };
 
   return (
-    <Layout title="상장에 적힐 당신의 이름을 멋지게 적어주상!">
+    <Layout title={["상장에 적힐 당신의 이름을", "멋지게 적어주상!"]}>
       <Wrapper>
         <MainImg src={MainImage} alt="메인 이미지" />
         <Input
