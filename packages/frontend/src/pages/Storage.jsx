@@ -17,17 +17,19 @@ const localstorageNickname = getLocalStorage(USER.NICKNAME);
 const Storage = () => {
   const [nickname, setNickname] = useState(localstorageNickname || "");
   const [selectedKey, setSelectedKey] = useState(null);
-  const [awardParamList, setAwardParamList] = useState([
-    { templateId: 0, stickerId: 1 },
-    { templateId: 1, stickerId: 2 },
-  ]);
+  const [awardParamList, setAwardParamList] = useState([]);
 
   const navigate = useNavigate();
   const service = Service();
 
   useEffect(() => {
-    setAwardParamList(service.getAwards());
+    fetchAwards();
   }, []);
+
+  const fetchAwards = async () => {
+    const awards = await service.getAwards();
+    setAwardParamList(awards)
+  }
 
   const showAwards = () => {
     if (awardParamList?.length > 0) {
@@ -36,7 +38,7 @@ const Storage = () => {
           <Carousel>
             {awardParamList.map((x, key) => (
               <AwardWrapper key={key} onClick={() => onAwardClick(key)}>
-                <ResultAward awardParam={x} />
+                <ResultAward awardParam={x} receiveName={nickname} />
               </AwardWrapper>
             ))}
           </Carousel>

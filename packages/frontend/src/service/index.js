@@ -41,8 +41,7 @@ const Service = () => {
     try {
       const userId = getLocalStorage(USER.USER_ID);
       const { data } = await getAwards(userId);
-      //TODO: check if data is object or array
-      return data.awards;
+      return data.data ? data.data.awards : data.awards;
     } catch (e) {
       console.log(e);
       alert(ERROR_MESSAGE.HTTP_REQUEST_FAILURE);
