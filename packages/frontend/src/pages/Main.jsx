@@ -68,7 +68,7 @@ const Main = () => {
       <BottomButtonWrapper marginTop={86}>
         <Button
           theme={linkShareTheme}
-          text="링크 공유"
+          text="링크 생성"
           disabled={linkShareTheme === BUTTON_THEME.DISABLED}
           onClick={onClickLinkShare}
         ></Button>
@@ -77,9 +77,9 @@ const Main = () => {
           value={`${SEND_URL}/${getLocalStorage(USER.USER_ID)}`}
           readOnly
         />
-        <Button 
-          theme={getLocalStorage(USER.USER_ID) ? BUTTON_THEME.DEFAULT : BUTTON_THEME.DISABLED} 
-          text="상장 콜렉션 보기" 
+        <Button
+          theme={getLocalStorage(USER.USER_ID) ? BUTTON_THEME.DEFAULT : BUTTON_THEME.DISABLED}
+          text="상장 콜렉션 보기"
           onClick={onClickViewStorage}
           disabled={getLocalStorage(USER.USER_ID) === null}
         />
