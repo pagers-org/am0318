@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledInput = styled.input`
-  width: 290px;
+  width: 260px;
   height: 30px;
   margin: 10px 17px;
   text-align: center;
