@@ -11,13 +11,14 @@ import EmptyImage from "../assets/images/award-empty.svg";
 import Service from "../service";
 import { getLocalStorage } from "../utils";
 import Carousel from "../components/Carousel";
+import Spinner from "@project/stories/src/components/atom/Spinner";
 
 const localstorageNickname = getLocalStorage(USER.NICKNAME);
 
 const Storage = () => {
-  const [nickname, setNickname] = useState(localstorageNickname || "");
+  const nickname = localstorageNickname || "";
   const [selectedKey, setSelectedKey] = useState(null);
-  const [awardParamList, setAwardParamList] = useState([]);
+  const [awardParamList, setAwardParamList] = useState(null);
 
   const navigate = useNavigate();
   const service = Service();
@@ -32,13 +33,21 @@ const Storage = () => {
   }
 
   const showAwards = () => {
+if (awardParamList === null){
+  return (
+    <SpinnerWrapper>
+      <Spinner />
+    </SpinnerWrapper>
+  );
+}
+
     if (awardParamList?.length > 0) {
       return (
         <CarouselWrapper>
           <Carousel>
             {awardParamList.map((x, key) => (
               <AwardWrapper key={key} onClick={() => onAwardClick(key)}>
-                <ResultAward awardParam={x} receiveName={nickname} />
+                <ResultAward awardParam={x} receiveName={nickname} sender={x.sender}/>
               </AwardWrapper>
             ))}
           </Carousel>
@@ -66,7 +75,6 @@ const Storage = () => {
   };
 
   //TODO: fix detailview ui
-  //TODO: check updated layout view 
   return selectedKey === null ? (
     <Layout title={["상장을 보며 자신감을 채우상!"]}>
       <Wrapper>
@@ -86,7 +94,7 @@ const Storage = () => {
           <div className="close-wrapper">
             <button className="close" onClick={onBackbuttonClick} />
           </div>
-          <ResultAward awardParam={awardParamList[selectedKey]} />
+          <ResultAward awardParam={awardParamList[selectedKey]} receiveName={nickname} sender={awardParamList[selectedKey].sender}/>
         </DetailWrapper>
         <Button
           theme={BUTTON_THEME.DEFAULT}
@@ -127,6 +135,15 @@ const EmptyWrapper = styled.div`
   img {
     height: 95%;
   }
+`;
+
+const SpinnerWrapper = styled.div`
+  max-width: 768px;
+  height: 410px;
+  margin-bottom: 120px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
 `;
 
 const AwardWrapper = styled.div`
