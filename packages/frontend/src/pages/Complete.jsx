@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { TIMEOUT } from '../constants';
 import NicknameContext from '../context/NicknameContext';
 import Snackbar from '@mui/material/Snackbar';
+import BottomButtonWrapper from '../components/BottomButtonWrapper';
 
 const Complete = () => {
   const { nickname } = useContext(NicknameContext);
@@ -30,13 +31,13 @@ const Complete = () => {
   }, [isSnackbarOpen]);
 
   return (
-    <Layout title={`${nickname.sender}가 ${nickname.receiver}에게 수여할 상장이 준비됐상!`}>
+    <Layout title={[`${nickname.sender}가 ${nickname.receiver}에게 수여할`, '상장이 준비됐상!']}>
       <Wrapper>
         <ResultAward sender={nickname.sender} awardParam={state} receiveName={nickname.receiver} />
-        <ButtonWrapper>
+        <BottomButtonWrapper marginTop={39}>
           <Button theme="action" text="상장 수여하겠상!" onClick={() => handleSaveAward(state)} />
           <Button text="나도 받고 싶상!" onClick={() => navigate('/')} />
-        </ButtonWrapper>
+        </BottomButtonWrapper>
       </Wrapper>
       <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
@@ -56,9 +57,4 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0px 25px;
-`;
-const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 `;
