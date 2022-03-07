@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cross-env copy ./_redirects ./dist/_redirects",
+    "build": "vite build && cp ./_redirects ./dist/_redirects",
     "start": "vite preview --port 3000"
   },
   "dependencies": {
