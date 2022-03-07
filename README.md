@@ -11,7 +11,7 @@
 <table>
   <tr height="140px">
   <td align="center">
-      <a href="https://bit.ly/3LZ2CdR"><img height="100px" width="100px" src="https://user-images.githubusercontent.com/40855076/157037284-03602eb9-a5ee-4a66-9650-09de97461f62.svg"/></a>
+      <a href="https://bit.ly/3LZ2CdR"><img height="100px" width="100px" src="https://user-images.githubusercontent.com/40855076/157038108-69be5018-5a4a-4376-8bcf-a46b0a9bd34c.png"/></a>
       <br />
       <a href="https://bit.ly/3LZ2CdR">노아 🎨</a>
     </td>
