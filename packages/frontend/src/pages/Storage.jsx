@@ -74,7 +74,6 @@ if (awardParamList === null){
     }
   };
 
-  //TODO: fix detailview ui
   return selectedKey === null ? (
     <Layout title={["상장을 보며 자신감을 채우상!"]}>
       <Wrapper>
@@ -94,7 +93,9 @@ if (awardParamList === null){
           <div className="close-wrapper">
             <button className="close" onClick={onBackbuttonClick} />
           </div>
-          <ResultAward awardParam={awardParamList[selectedKey]} receiveName={nickname} sender={awardParamList[selectedKey].sender}/>
+          <div className="scaled-wrapper">
+            <ResultAward awardParam={awardParamList[selectedKey]} receiveName={nickname} sender={awardParamList[selectedKey].sender}/>
+          </div>
         </DetailWrapper>
         <Button
           theme={BUTTON_THEME.DEFAULT}
@@ -152,13 +153,27 @@ const AwardWrapper = styled.div`
 
 const DetailWrapper = styled.div`
   display: flex;
-  margin-bottom: 100px;
+  margin-bottom: 170px;
   flex-direction: column;
 
   div.close-wrapper {
     display: flex;
     justify-content: end;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    transform: scale(1.3);
+  }
+
+  div.scaled-wrapper {
+    transform: scale(1.2);
+  }
+
+  @media only screen and (max-width: 425px) {
+    div.close-wrapper {
+      transform: scale(1.1);
+    }
+    div.scaled-wrapper {
+      transform: scale(1.1);
+    }
   }
 
   button.close {
