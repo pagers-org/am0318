@@ -9,14 +9,18 @@ const Wrapper = styled.div`
   height: 63px;
   background-image: ${({ value }) => (value ? `url(${validBg})` : `url(${emptyBg})`)};
   background-repeat: no-repeat;
+  overflow: hidden; 
+  display: flex;
+  justify-content:center;
+  align-items:center;
 `;
 
 const StyledInput = styled.input`
-  width: 260px;
+  width: 250px;
   height: 30px;
-  margin: 10px 17px;
   text-align: center;
   font-size: 18px;
+  margin-bottom:10px;
   color: #000;
   outline: none;
   border: none;
