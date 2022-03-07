@@ -23,11 +23,11 @@ const Complete = () => {
 
   useEffect(() => {
     if (isSnackbarOpen) {
-      const snackBarTimeour = setTimeout(() => {
+      setTimeout(() => {
         setIsSnackbarOpen(false);
       }, TIMEOUT.COMPLETE_COPY_CLIPBOARD);
-      () => clearTimeout(snackBarTimeour);
     }
+    return () => clearTimeout();
   }, [isSnackbarOpen]);
 
   return (
