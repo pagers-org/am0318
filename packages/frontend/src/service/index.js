@@ -17,9 +17,8 @@ const Service = () => {
     }
   };
 
-  self.getUser = async () => {
+  self.getUser = async userId => {
     try {
-      const userId = getLocalStorage(USER.USER_ID);
       const { data } = await getUser(userId);
       return data;
     } catch (e) {

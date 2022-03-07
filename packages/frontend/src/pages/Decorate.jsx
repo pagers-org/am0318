@@ -58,7 +58,6 @@ const Decorate = () => {
             handleClick={() => handleNextButton()}
           />
         );
-
       case 3:
         return <Loading />;
       default:

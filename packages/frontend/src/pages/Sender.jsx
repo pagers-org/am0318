@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
 import MainImage from '../assets/images/main-image.png';
 import Input from '../components/Input';
 import NicknameContext from '../context/NicknameContext';
 import Button from '@project/stories/src/components/atom/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import Service from '../service';
 
 const MainImg = styled.img`
   margin: 22px 0px 40px 0px;
@@ -28,13 +29,19 @@ const ButtonWrapper = styled.div`
 `;
 
 function Sender() {
-  const { yourNickname, setYourNickname } = useContext(NicknameContext);
+  const { nickname, setNickname } = useContext(NicknameContext);
   const [isButtonActive, setIsButtonActive] = useState(false);
   const navigate = useNavigate();
+  const { id } = useParams();
+  const service = Service();
 
-  const onChangeName = (e) => {
+  useEffect(() => {
+    service.getUser(id).then(item => setNickname({ ...nickname, receiver: item.nickname }));
+  }, []);
+
+  const onChangeName = e => {
     const { value } = e.target;
-    setYourNickname(value);
+    setNickname({ ...nickname, sender: value });
     if (!value) {
       return setIsButtonActive(false);
     }
@@ -42,20 +49,20 @@ function Sender() {
   };
 
   return (
-    <Layout title='상장에 적힐 당신의 이름을 멋지게 적어주상!'>
+    <Layout title="상장에 적힐 당신의 이름을 멋지게 적어주상!">
       <Wrapper>
-        <MainImg src={MainImage} alt='메인 이미지' />
+        <MainImg src={MainImage} alt="메인 이미지" />
         <Input
-          type='text'
-          placeholder='10자 이하의 멋진 이름'
-          value={yourNickname}
+          type="text"
+          placeholder="10자 이하의 멋진 이름"
+          value={nickname.sender}
           onChange={onChangeName}
         />
         <ButtonWrapper>
           <Button
             theme={isButtonActive ? 'action' : 'disabled'}
-            text='상장 만들기'
-            onClick={() => navigate('/decorate')}
+            text="상장 만들기"
+            onClick={() => navigate(`/${id}/decorate`)}
           />
         </ButtonWrapper>
       </Wrapper>
