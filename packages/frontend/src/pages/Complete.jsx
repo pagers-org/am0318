@@ -17,7 +17,7 @@ const Complete = () => {
   const { state } = useLocation();
   const service = Service();
   const navigate = useNavigate();
-  const handleSaveAward = async state => {
+  const handleSaveAward = async (state) => {
     await service.updateAward(state).then(() => setIsSnackbarOpen(true));
   };
 
@@ -31,11 +31,24 @@ const Complete = () => {
   }, [isSnackbarOpen]);
 
   return (
-    <Layout title={[`${nickname.sender}가 ${nickname.receiver}에게 수여할`, '상장이 준비됐상!']}>
+    <Layout
+      title={[
+        `${nickname.sender}가 ${nickname.receiver}에게 수여할`,
+        '상장이 준비됐상!',
+      ]}
+    >
       <Wrapper>
-        <ResultAward sender={nickname.sender} awardParam={state} receiveName={nickname.receiver} />
+        <ResultAward
+          sender={nickname.sender}
+          awardParam={state}
+          receiveName={nickname.receiver}
+        />
         <BottomButtonWrapper marginTop={39}>
-          <Button theme="action" text="상장 수여하겠상!" onClick={() => handleSaveAward(state)} />
+          <Button
+            theme="action"
+            text="상장 수여하겠상!"
+            onClick={() => handleSaveAward(state)}
+          />
           <Button text="나도 받고 싶상!" onClick={() => navigate('/')} />
         </BottomButtonWrapper>
       </Wrapper>
