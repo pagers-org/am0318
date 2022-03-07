@@ -11,20 +11,14 @@ import NicknameContext from '../context/NicknameContext';
 import Snackbar from '@mui/material/Snackbar';
 
 const Complete = () => {
-  const { yourNickname } = useContext(NicknameContext);
+  const { nickname } = useContext(NicknameContext);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
-  const [receiveName, setReceiveName] = useState('');
   const { state } = useLocation();
-  const name = 'hello';
   const service = Service();
   const navigate = useNavigate();
   const handleSaveAward = async state => {
     await service.updateAward(state).then(() => setIsSnackbarOpen(true));
   };
-
-  useEffect(() => {
-    service.getUser().then(item => setReceiveName(item.nickname));
-  }, []);
 
   useEffect(() => {
     if (isSnackbarOpen) {
@@ -36,9 +30,9 @@ const Complete = () => {
   }, [isSnackbarOpen]);
 
   return (
-    <Layout title={`${name}가 ${receiveName}에게 수여할 상장이 준비됐상!`}>
+    <Layout title={`${nickname.sender}가 ${nickname.receiver}에게 수여할 상장이 준비됐상!`}>
       <Wrapper>
-        <ResultAward name={yourNickname} awardParam={state} receiveName={receiveName} />
+        <ResultAward sender={nickname.sender} awardParam={state} receiveName={nickname.receiver} />
         <ButtonWrapper>
           <Button theme="action" text="상장 수여하겠상!" onClick={() => handleSaveAward(state)} />
           <Button text="나도 받고 싶상!" onClick={() => navigate('/')} />
