@@ -1,4 +1,9 @@
 # am0318: 당신에게 주겠상✨
+```
+쑥스러워 숨겼던 마음, 직접 말하기엔 어색했던 마음, 하지만 너무너무 잘했다고 전달하고 싶은 마음.. 뭐든 좋상!
+상장과 도장에 마음을 담으면 누군지 아무도 모르게 슝- 주겠상🏆
+다들 너무 멋지게 잘하고있으니 오늘도 상장받고 이겨내상 ><
+```
 > 테오의 스프린트 5기
 
 - [Gather](https://app.gather.town/app/BF5knX8KBmXFn5CU/teo)
@@ -11,7 +16,7 @@
 <table>
   <tr height="140px">
   <td align="center">
-      <a href="https://bit.ly/3LZ2CdR"><img height="100px" width="100px" src="https://user-images.githubusercontent.com/40855076/157037284-03602eb9-a5ee-4a66-9650-09de97461f62.svg"/></a>
+      <a href="https://bit.ly/3LZ2CdR"><img height="100px" width="100px" src="https://user-images.githubusercontent.com/40855076/157038108-69be5018-5a4a-4376-8bcf-a46b0a9bd34c.png"/></a>
       <br />
       <a href="https://bit.ly/3LZ2CdR">노아 🎨</a>
     </td>
