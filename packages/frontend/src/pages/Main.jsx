@@ -77,7 +77,12 @@ const Main = () => {
           value={`${SEND_URL}/${getLocalStorage(USER.USER_ID)}`}
           readOnly
         />
-        <Button theme={BUTTON_THEME.DEFAULT} text="상장 콜렉션 보기" onClick={onClickViewStorage} />
+        <Button 
+          theme={getLocalStorage(USER.USER_ID) ? BUTTON_THEME.DEFAULT : BUTTON_THEME.DISABLED} 
+          text="상장 콜렉션 보기" 
+          onClick={onClickViewStorage}
+          disabled={getLocalStorage(USER.USER_ID) === null}
+        />
       </BottomButtonWrapper>
       <Snackbar
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
