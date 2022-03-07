@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import AwardContents from '../components/AwardContents';
 import SelectStamp from '../components/SelectStamp';
 import { Template } from '../components/Template';
 import Loading from '../components/Loading';
 import { getTemplate } from '../utils/GetSvg';
+import NicknameContext from '../context/NicknameContext';
 
 const Decorate = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const { nickname } = useContext(NicknameContext);
   const navigate = useNavigate();
   const { id } = useParams();
   const COLORS = ['#FF5F0F', '#FFF27B', '#82E8CF', '#79BBE5'];
   const [awardParams, setAwardParams] = useState({
     userId: id,
     title: '',
+    sender: nickname.sender || '',
     description: '',
     templateId: '0',
     stickerId: '0',

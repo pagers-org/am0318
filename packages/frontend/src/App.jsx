@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';;
+import { Route, Routes, Navigate } from 'react-router-dom';
 const Home = lazy(() => import('./pages/Home'));
 const Main = lazy(() => import('./pages/Main'));
 const Sender = lazy(() => import('./pages/Sender'));
