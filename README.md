@@ -1,17 +1,75 @@
 # am0318: 당신에게 주겠상✨
+> 테오의 스프린트 5기
+
+<br/>
+
+<div align=center>
+
+<img src="https://user-images.githubusercontent.com/40855076/157042524-a74463b3-c9f7-45f7-adc4-d7a8791bed8e.png" 
+width="600"
+/>
+
+</div>
+
+<br/>
+
+## INTRO
 ```
 쑥스러워 숨겼던 마음, 직접 말하기엔 어색했던 마음, 하지만 너무너무 잘했다고 전달하고 싶은 마음.. 뭐든 좋상!
 상장과 도장에 마음을 담으면 누군지 아무도 모르게 슝- 주겠상🏆
 다들 너무 멋지게 잘하고있으니 오늘도 상장받고 이겨내상 ><
 ```
-<img src="https://user-images.githubusercontent.com/40855076/157042524-a74463b3-c9f7-45f7-adc4-d7a8791bed8e.png" />
-
-> 테오의 스프린트 5기
 
 - [Gather](https://app.gather.town/app/BF5knX8KBmXFn5CU/teo)
 - [Figma](https://www.figma.com/file/gK3CgCDEI2NVTIcbpBmx14/%ED%85%8C%EC%98%A4%EC%9D%98-%EC%8A%A4%ED%94%84%EB%A6%B0%ED%8A%B8-5%EA%B8%B0?node-id=2%3A3)
 
-<br>
+<br/>
+
+## USAGE
+1. [당신에게 주겠상✨](serene-golick-21e934.netlify.app/)에 접속한다.
+2. `시작하기` 버튼을 클릭한다.
+3. 자신의 애칭을 입력하고 `링크 생성`을 클릭한다.
+4. 복사된 URL을 친구와 동료들에게 공유한다👀
+    > URL로 접속한 뒤 애칭을 입력하고 상장을 만들어 수여해주세요🥳
+
+5. 시간이 지나고 `상장 콜렉션 보기`를 클릭하여 수여된 상장을 감상한다🤭
+
+<br/>
+
+## TECH STACK
+### Common
+<p>
+  <img src="https://img.shields.io/badge/Lerna-2F0268?style=flat-square&logo=Lerna&logoColor=white"/>&nbsp
+  <br>
+</p>
+
+### Frontend
+> Netlify 배포
+
+<p>
+  <img src="https://img.shields.io/badge/JavaScript-ffb13b?style=flat-square&logo=javascript&logoColor=white"/>&nbsp 
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/>&nbsp
+  <br>
+  <img src="https://img.shields.io/badge/StyledComponents-DB7093?style=flat-square&logo=StyledComponents&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/MaterialDesignIcons-2196F3?style=flat-square&logo=MaterialDesignIcons&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/Storybook-FF4785?style=flat-square&logo=Storybook&logoColor=white"/>&nbsp
+  <br>
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=ESLint&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=Prettier&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/Babel-F9DC3E?style=flat-square&logo=babel&logoColor=white"/>&nbsp
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=Vite&logoColor=white"/>&nbsp 
+</p>
+
+### Backend
+> Heroku 배포
+
+<p>
+  <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white"/>&nbsp 
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=Firebase&logoColor=white"/>&nbsp
+  <br>
+</p>
+
+<br/>
 
 ## CONTRIBUTORS 
 
@@ -55,19 +113,29 @@
   </tr>
 </table>
 
-## USAGE
-### Install
-```sh
-yarn install # or yarn
-```
+## INSTALL & RUN
+- install
+  ```sh
+  yarn install # or yarn
+  ```
 
-### Run
-```sh
-yarn dev:back  # backend: server
-yarn dev:front # frontend: client
+- run
+  ```sh
+  yarn dev:back  # backend: server
+  yarn dev:front # frontend: client
 
-yarn start     # bacend-frontend, web start
-```
+  yarn start     # bacend-frontend, web start
+  ```
+
+- build
+  ```sh
+  yarn build
+  ```
+
+- port kill
+  ```sh
+  yarn taskkill
+  ```
 
 <br>
 
