@@ -66,7 +66,7 @@ const Storage = () => {
   //TODO: fix detailview ui
   //TODO: check updated layout view 
   return selectedKey === null ? (
-    <Layout title="상장을 보며 자신감을 채우상!">
+    <Layout title={["상장을 보며 자신감을 채우상!"]}>
       <Wrapper>
         <StorageTitle>{nickname}의 컬렉션</StorageTitle>
         {showAwards()}
