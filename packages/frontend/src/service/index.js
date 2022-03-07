@@ -8,9 +8,9 @@ const Service = () => {
   self.signup = async nickname => {
     try {
       const { data } = await postCreateUser(nickname);
-      setLocalStorage(USER.USER_ID, data.data.userId);
-      setLocalStorage(USER.NICKNAME, data.data.nickname);
-      return data.data;
+      setLocalStorage(USER.USER_ID, data.userId);
+      setLocalStorage(USER.NICKNAME, data.nickname);
+      return data;
     } catch (e) {
       console.log(e);
       alert(ERROR_MESSAGE.HTTP_REQUEST_FAILURE);
