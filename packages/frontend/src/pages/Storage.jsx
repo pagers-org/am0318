@@ -38,7 +38,7 @@ const Storage = () => {
           <Carousel>
             {awardParamList.map((x, key) => (
               <AwardWrapper key={key} onClick={() => onAwardClick(key)}>
-                <ResultAward awardParam={x} receiveName={nickname} />
+                <ResultAward awardParam={x} receiveName={nickname} sender={x.sender}/>
               </AwardWrapper>
             ))}
           </Carousel>
@@ -66,7 +66,6 @@ const Storage = () => {
   };
 
   //TODO: fix detailview ui
-  //TODO: check updated layout view 
   return selectedKey === null ? (
     <Layout title={["상장을 보며 자신감을 채우상!"]}>
       <Wrapper>
@@ -86,7 +85,7 @@ const Storage = () => {
           <div className="close-wrapper">
             <button className="close" onClick={onBackbuttonClick} />
           </div>
-          <ResultAward awardParam={awardParamList[selectedKey]} />
+          <ResultAward awardParam={awardParamList[selectedKey]} receiveName={nickname} sender={awardParamList[selectedKey].sender}/>
         </DetailWrapper>
         <Button
           theme={BUTTON_THEME.DEFAULT}
