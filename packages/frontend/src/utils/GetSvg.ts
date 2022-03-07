@@ -57,16 +57,16 @@ export const getStamp = (index) => {
 };
 
 export const getTemplate = (index) => {
-  	switch (index) {
-		case 0:
-			return award_orange;
-		case 1:
-			return award_yellow;
-		case 2:
-			return award_mint;
-		case 3:
-			return award_blue;
-		default:
-			return
-	}
+  switch (index) {
+    case 0:
+      return award_orange;
+    case 1:
+      return award_yellow;
+    case 2:
+      return award_mint;
+    case 3:
+      return award_blue;
+    default:
+      return;
+  }
 };
