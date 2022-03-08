@@ -9,12 +9,13 @@ import Service from '../service';
 import { getLocalStorage } from '../utils';
 import Snackbar from '@mui/material/Snackbar';
 import { useNavigate } from 'react-router-dom';
-// import NicknameContext from '../context/NicknameContext';
+import Loading from '../components/Loading';
 import BottomButtonWrapper from '../components/BottomButtonWrapper';
 
 const localstorageNickname = getLocalStorage(USER.NICKNAME);
 
 const Main = () => {
+  const [isLoading, setLoading] = useState(false);
   const [nickname, setNickname] = useState(localstorageNickname || '');
   const [linkShareTheme, setLinkShareTheme] = useState(BUTTON_THEME.DISABLED);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
@@ -41,7 +42,9 @@ const Main = () => {
 
   const onClickLinkShare = async e => {
     if (!getLocalStorage(USER.NICKNAME)) {
+      setLoading(true);
       const data = await service.signup(nickname);
+      setLoading(false);
       copyUrlRef.current.value = `${SEND_URL}/${data.userId}`;
     }
     copyUrlRef.current.select();
@@ -55,42 +58,48 @@ const Main = () => {
   };
 
   return (
-    <Layout title={['상장에 적힐 당신의 이름을', '멋지게 적어주상!']}>
-      <Wrapper>
-        <MainImg src={MainImage} alt="메인 이미지" />
-        <Input
-          type="text"
-          placeholder="10자 이하의 멋진 이름"
-          value={nickname}
-          onChange={onChangeName}
-        />
-      </Wrapper>
-      <BottomButtonWrapper marginTop={86}>
-        <Button
-          theme={linkShareTheme}
-          text="링크 생성"
-          disabled={linkShareTheme === BUTTON_THEME.DISABLED}
-          onClick={onClickLinkShare}
-        ></Button>
-        <ClipboardTextarea
-          ref={copyUrlRef}
-          value={`${SEND_URL}/${getLocalStorage(USER.USER_ID)}`}
-          readOnly
-        />
-        <Button
-          theme={getLocalStorage(USER.USER_ID) ? BUTTON_THEME.DEFAULT : BUTTON_THEME.DISABLED}
-          text="상장 콜렉션 보기"
-          onClick={onClickViewStorage}
-          disabled={getLocalStorage(USER.USER_ID) === null}
-        />
-      </BottomButtonWrapper>
-      <Snackbar
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-        open={isSnackbarOpen}
-        onClose={() => setIsSnackbarOpen(false)}
-        message="링크가 복사되었습니다. 공유하고 상장을 받을 수 있어요!"
-      />
-    </Layout>
+    <>
+      {isLoading ? (
+        <Loading text="애칭을 생성하고 있상!" />
+      ) : (
+        <Layout title={['상장에 적힐 당신의 이름을', '멋지게 적어주상!']}>
+          <Wrapper>
+            <MainImg src={MainImage} alt="메인 이미지" />
+            <Input
+              type="text"
+              placeholder="10자 이하의 멋진 이름"
+              value={nickname}
+              onChange={onChangeName}
+            />
+          </Wrapper>
+          <BottomButtonWrapper marginTop={86}>
+            <Button
+              theme={linkShareTheme}
+              text="링크 생성"
+              disabled={linkShareTheme === BUTTON_THEME.DISABLED}
+              onClick={onClickLinkShare}
+            ></Button>
+            <ClipboardTextarea
+              ref={copyUrlRef}
+              value={`${SEND_URL}/${getLocalStorage(USER.USER_ID)}`}
+              readOnly
+            />
+            <Button
+              theme={getLocalStorage(USER.USER_ID) ? BUTTON_THEME.DEFAULT : BUTTON_THEME.DISABLED}
+              text="상장 콜렉션 보기"
+              onClick={onClickViewStorage}
+              disabled={getLocalStorage(USER.USER_ID) === null}
+            />
+          </BottomButtonWrapper>
+          <Snackbar
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            open={isSnackbarOpen}
+            onClose={() => setIsSnackbarOpen(false)}
+            message="링크가 복사되었습니다. 공유하고 상장을 받을 수 있어요!"
+          />
+        </Layout>
+      )}
+    </>
   );
 };
 

@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import Layout from "../components/Layout";
-import styled from "styled-components";
-import StorageTitle from "@project/stories/src/components/atom/StorageTitle";
-import Button from "@project/stories/src/components/atom/Button";
-import { BUTTON_THEME, SEND_URL, TIMEOUT, USER } from "../constants";
-import { useNavigate } from "react-router-dom";
-import ResultAward from "../components/ResultAward";
-import CloseIcon from "../assets/icons/close.svg";
-import EmptyImage from "../assets/images/award-empty.svg";
-import Service from "../service";
-import { getLocalStorage } from "../utils";
-import Carousel from "../components/Carousel";
-import Spinner from "@project/stories/src/components/atom/Spinner";
+import React, { useEffect, useState } from 'react';
+import Layout from '../components/Layout';
+import styled from 'styled-components';
+import StorageTitle from '@project/stories/src/components/atom/StorageTitle';
+import Button from '@project/stories/src/components/atom/Button';
+import { BUTTON_THEME, USER } from '../constants';
+import { useNavigate } from 'react-router-dom';
+import ResultAward from '../components/ResultAward';
+import CloseIcon from '../assets/icons/close.svg';
+import EmptyImage from '../assets/images/award-empty.svg';
+import Service from '../service';
+import { getLocalStorage } from '../utils';
+import Carousel from '../components/Carousel';
+import Spinner from '@project/stories/src/components/atom/Spinner';
 
 const localstorageNickname = getLocalStorage(USER.NICKNAME);
 
 const Storage = () => {
-  const nickname = localstorageNickname || "";
+  const nickname = localstorageNickname || '';
   const [selectedKey, setSelectedKey] = useState(null);
   const [awardParamList, setAwardParamList] = useState(null);
 
@@ -29,17 +29,17 @@ const Storage = () => {
 
   const fetchAwards = async () => {
     const awards = await service.getAwards();
-    setAwardParamList(awards)
-  }
+    setAwardParamList(awards);
+  };
 
   const showAwards = () => {
-if (awardParamList === null){
-  return (
-    <SpinnerWrapper>
-      <Spinner />
-    </SpinnerWrapper>
-  );
-}
+    if (awardParamList === null) {
+      return (
+        <SpinnerWrapper>
+          <Spinner />
+        </SpinnerWrapper>
+      );
+    }
 
     if (awardParamList?.length > 0) {
       return (
@@ -47,7 +47,7 @@ if (awardParamList === null){
           <Carousel>
             {awardParamList.map((x, key) => (
               <AwardWrapper key={key} onClick={() => onAwardClick(key)}>
-                <ResultAward awardParam={x} receiveName={nickname} sender={x.sender}/>
+                <ResultAward awardParam={x} receiveName={nickname} sender={x.sender} />
               </AwardWrapper>
             ))}
           </Carousel>
@@ -62,7 +62,7 @@ if (awardParamList === null){
     }
   };
 
-  const onAwardClick = (key) => {
+  const onAwardClick = key => {
     setSelectedKey(key);
   };
 
@@ -75,15 +75,11 @@ if (awardParamList === null){
   };
 
   return selectedKey === null ? (
-    <Layout title={["상장을 보며 자신감을 채우상!"]}>
+    <Layout title={['상장을 보며 자신감을 채우상!']}>
       <Wrapper>
         <StorageTitle>{nickname}의 컬렉션</StorageTitle>
         {showAwards()}
-        <Button
-          theme={BUTTON_THEME.DEFAULT}
-          text="뒤로 가기"
-          onClick={onBackbuttonClick}
-        />
+        <Button theme={BUTTON_THEME.DEFAULT} text="뒤로 가기" onClick={onBackbuttonClick} />
       </Wrapper>
     </Layout>
   ) : (
@@ -94,14 +90,14 @@ if (awardParamList === null){
             <button className="close" onClick={onBackbuttonClick} />
           </div>
           <div className="scaled-wrapper">
-            <ResultAward awardParam={awardParamList[selectedKey]} receiveName={nickname} sender={awardParamList[selectedKey].sender}/>
+            <ResultAward
+              awardParam={awardParamList[selectedKey]}
+              receiveName={nickname}
+              sender={awardParamList[selectedKey].sender}
+            />
           </div>
         </DetailWrapper>
-        <Button
-          theme={BUTTON_THEME.DEFAULT}
-          text="뒤로 가기"
-          onClick={onBackbuttonClick}
-        />
+        <Button theme={BUTTON_THEME.DEFAULT} text="뒤로 가기" onClick={onBackbuttonClick} />
       </Wrapper>
     </Layout>
   );

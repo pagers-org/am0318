@@ -14,8 +14,8 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Image = styled.img`
-`;
+const Image = styled.img``;
+
 const TextWrapper = styled.div`
   margin-top: 40px;
   text-align: center;
@@ -26,8 +26,7 @@ const Text = styled.p`
   font-size: 18px;
 `;
 
-function Loading() {
-
+function Loading({ isWriting, text }) {
   const [icon, setIcon] = useState(null);
   const images = [smile, wink, cute];
 
@@ -48,7 +47,7 @@ function Loading() {
         <Image src={icon} />
       </ImageWrapper>
       <TextWrapper>
-        <Text>상장을 출력하고 있상!</Text>
+        <Text>{text}</Text>
         <Text>조금만 기다리상!</Text>
       </TextWrapper>
     </Layout>

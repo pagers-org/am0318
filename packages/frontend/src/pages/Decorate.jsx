@@ -26,7 +26,7 @@ const Decorate = () => {
     setAwardParams({ ...awardParams, [name]: index.toString() });
   };
 
-  const handleInput = (e) => {
+  const handleInput = e => {
     setAwardParams({ ...awardParams, [e.target.name]: e.target.value });
   };
 
@@ -36,10 +36,10 @@ const Decorate = () => {
         navigate('/complete', { state: awardParams });
       }, 2500);
     }
-    setCurrentPage((prev) => prev + 1);
+    setCurrentPage(prev => prev + 1);
   };
 
-  const renderComponents = (currentPage) => {
+  const renderComponents = currentPage => {
     switch (currentPage) {
       case 0:
         return (
@@ -52,12 +52,7 @@ const Decorate = () => {
           />
         );
       case 1:
-        return (
-          <AwardContents
-            handleInput={handleInput}
-            handleNextButton={handleNextButton}
-          />
-        );
+        return <AwardContents handleInput={handleInput} handleNextButton={handleNextButton} />;
       case 2:
         return (
           <SelectStamp
@@ -67,7 +62,7 @@ const Decorate = () => {
           />
         );
       case 3:
-        return <Loading />;
+        return <Loading text="상장을 출력하고 있상!" />;
       default:
         break;
     }

@@ -4,6 +4,7 @@ import oathImg from '../assets/images/oath.svg';
 import Layout from '../components/Layout';
 import Button from '@project/stories/src/components/atom/Button';
 import { useNavigate } from 'react-router-dom';
+import WelcomeModal from '../components/WelcomeModal';
 
 const Image = styled.img`
   margin-top: 52px;
@@ -23,8 +24,9 @@ export const Home = () => {
 
   return (
     <Layout title={['당신에게 주겠상']}>
+      <WelcomeModal />
       <Image src={oathImg} />
-      <Button onClick={onClickStart} text='시작하기' theme='action' />
+      <Button onClick={onClickStart} text="시작하기" theme="action" />
     </Layout>
   );
 };
