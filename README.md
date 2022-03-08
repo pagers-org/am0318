@@ -124,7 +124,7 @@ width="600"
   yarn dev:back  # backend: server
   yarn dev:front # frontend: client
 
-  yarn start     # bacend-frontend, web start
+  yarn dev:start     # bacend-frontend, web start
   ```
 
 - build
