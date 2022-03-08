@@ -7,6 +7,7 @@ import NicknameContext from '../context/NicknameContext';
 import Button from '@project/stories/src/components/atom/Button';
 import { useNavigate, useParams } from 'react-router-dom';
 import Service from '../service';
+import BottomButtonWrapper from '../components/BottomButtonWrapper';
 
 const MainImg = styled.img`
   margin: 22px 0px 40px 0px;
@@ -58,13 +59,13 @@ function Sender() {
           value={nickname.sender}
           onChange={onChangeName}
         />
-        <ButtonWrapper>
+        <BottomButtonWrapper marginTop={166}>
           <Button
             theme={isButtonActive ? 'action' : 'disabled'}
             text="상장 만들기"
             onClick={() => navigate(`/${id}/decorate`)}
           />
-        </ButtonWrapper>
+        </BottomButtonWrapper>
       </Wrapper>
     </Layout>
   );
