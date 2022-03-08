@@ -76,37 +76,37 @@ width="600"
 <table>
   <tr height="140px">
   <td align="center">
-      <a href="https://bit.ly/3LZ2CdR"><img height="100px" width="100px" src="https://user-images.githubusercontent.com/40855076/157038108-69be5018-5a4a-4376-8bcf-a46b0a9bd34c.png"/></a>
+      <a href="https://bit.ly/3LZ2CdR"><img height="100px" width="100px" src="./images/noa.png"/></a>
       <br />
       <a href="https://bit.ly/3LZ2CdR">노아 🎨</a>
     </td>
     <td align="center">
-      <a href="https://github.com/InSeong-So"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/18283006?v=4"/></a>
+      <a href="https://github.com/InSeong-So"><img height="100px" width="100px" src="./images/parang.png"/></a>
       <br />
       <a href="https://github.com/InSeong-So">파랑 💻</a>
     </td>
     <td align="center">
-      <a href="https://github.com/areumsheep"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/48716298?v=4"/></a>
+      <a href="https://github.com/areumsheep"><img height="100px" width="100px" src="./images/joy.png"/></a>
       <br />
       <a href="https://github.com/areumsheep">조이 💻</a>
     </td>
     <td align="center">
-      <a href="https://github.com/parksil0"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/41149744?v=4"/></a>
+      <a href="https://github.com/parksil0"><img height="100px" width="100px" src="./images/seal.png"/></a>
       <br />
       <a href="https://github.com/parksil0">Seal 💻</a>
     </td>
     <td align="center">
-      <a href="https://github.com/wooooooood"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/40855076?v=4"/></a>
+      <a href="https://github.com/wooooooood"><img height="100px" width="100px" src="./images/namu.png"/></a>
       <br />
       <a href="https://github.com/wooooooood">나무 💻</a>
     </td>
     <td align="center">
-      <a href="https://github.com/yechukim"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/61838900?v=4"/></a>
+      <a href="https://github.com/yechukim"><img height="100px" width="100px" src="./images/yechu.png"/></a>
       <br />
       <a href="https://github.com/yechukim">예츄 💻</a>
     </td>
     <td align="center">
-      <a href="https://github.com/sunhwa508"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/61695175?v=4"/></a>
+      <a href="https://github.com/sunhwa508"><img height="100px" width="100px" src="./images/console.png"/></a>
       <br />
       <a href="https://github.com/sunhwa508">콘솔 💻</a>
     </td>
